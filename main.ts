@@ -1,25 +1,6 @@
-radio.onReceivedNumber(function (receivedNumber) {
-    basic.showLeds(`
-        . . . . .
-        . # . # .
-        . . . . .
-        # . . . #
-        . # # # .
-        `)
-    basic.pause(500)
-    basic.showLeds(`
-        . # . # .
-        . . . . .
-        . . . . .
-        # . . . #
-        . # # # .
-        `)
-    basic.pause(500)
-    basic.clearScreen()
-})
 input.onButtonPressed(Button.A, function () {
     if (inputMess == 1) {
-        radio.sendNumber(0)
+        radio.sendString("" + (face1))
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -44,7 +25,8 @@ input.onGesture(Gesture.Shake, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     if (inputMess == 1) {
-        radio.sendValue("name", 0)
+        let face3 = 0
+        radio.sendString("" + (face3))
         basic.showLeds(`
             . . . . .
             . . . # .
@@ -57,27 +39,30 @@ input.onButtonPressed(Button.AB, function () {
     }
 })
 radio.onReceivedString(function (receivedString) {
-    basic.showLeds(`
-        . . . . .
-        . # . # .
-        . . . . .
-        . # # # .
-        # . . . #
-        `)
-    basic.pause(500)
-    basic.showLeds(`
-        . # . # .
-        . . . . .
-        . . . . .
-        . # # # .
-        # . . . #
-        `)
-    basic.pause(500)
-    basic.clearScreen()
+    if (receivedString == face1) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+        basic.pause(500)
+        basic.showLeds(`
+            . # . # .
+            . . . . .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+        basic.pause(500)
+        basic.clearScreen()
+    }
 })
 input.onButtonPressed(Button.B, function () {
     if (inputMess == 1) {
-        radio.sendString("")
+        let face2 = 0
+        radio.sendString("" + (face2))
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -92,25 +77,7 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("" + (valorePassi))
     }
 })
-radio.onReceivedValue(function (name, value) {
-    basic.showLeds(`
-        . . . . .
-        . . . # .
-        . . # . .
-        . # # # .
-        # # # # #
-        `)
-    basic.pause(500)
-    basic.showLeds(`
-        . . . . .
-        . # . . .
-        . . # . .
-        . # # # .
-        # # # # #
-        `)
-    basic.pause(500)
-    basic.clearScreen()
-})
+let face1 = ""
 let valorePassi = 0
 let inputPassi = 0
 let inputMess = 0
