@@ -25,7 +25,6 @@ input.onGesture(Gesture.Shake, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     if (inputMess == 1) {
-        let face3 = 0
         radio.sendString("" + (face3))
         basic.showLeds(`
             . . . . .
@@ -57,11 +56,46 @@ radio.onReceivedString(function (receivedString) {
             `)
         basic.pause(500)
         basic.clearScreen()
+    } else if (receivedString == face2) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+        basic.pause(500)
+        basic.showLeds(`
+            . # . # .
+            . . . . .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+        basic.pause(500)
+        basic.clearScreen()
+    } else if (receivedString == face3) {
+        basic.showLeds(`
+            . . . . .
+            . . . # .
+            . . # . .
+            . # # # .
+            # # # # #
+            `)
+        basic.pause(500)
+        basic.showLeds(`
+            . . . . .
+            . # . . .
+            . . # . .
+            . # # # .
+            # # # # #
+            `)
+        basic.pause(500)
+        basic.clearScreen()
     }
 })
 input.onButtonPressed(Button.B, function () {
     if (inputMess == 1) {
-        let face2 = 0
         radio.sendString("" + (face2))
         basic.showLeds(`
             . . . . .
@@ -77,6 +111,8 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("" + (valorePassi))
     }
 })
+let face2 = ""
+let face3 = ""
 let face1 = ""
 let valorePassi = 0
 let inputPassi = 0
