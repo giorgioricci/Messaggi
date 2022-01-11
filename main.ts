@@ -118,6 +118,7 @@ let valorePassi = 0
 let setPassi = 0
 let setMessaggi = 0
 radio.setGroup(5)
+basic.showString("A o B?")
 basic.pause(2000)
 if (input.buttonIsPressed(Button.A)) {
     setMessaggi = 1
@@ -127,6 +128,6 @@ if (input.buttonIsPressed(Button.A)) {
     valorePassi = 0
     basic.showString("Passi")
 } else {
-    basic.showString("Premi Pulsante")
+    basic.showString("Non scelto")
 }
 basic.pause(1000)
