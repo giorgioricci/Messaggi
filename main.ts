@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
-    if (inputMess == 1) {
-        radio.sendString("" + (face1))
+    if (setMessaggi == 1) {
+        radio.sendString("" + (facciaFelice))
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -10,7 +10,7 @@ input.onButtonPressed(Button.A, function () {
             `)
         basic.pause(1000)
         basic.clearScreen()
-    } else if (inputPassi == 1) {
+    } else if (setPassi == 1) {
         basic.showString("" + (valorePassi))
         basic.pause(5000)
         basic.clearScreen()
@@ -18,14 +18,14 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onGesture(Gesture.Shake, function () {
     valorePassi += 1
-    if (inputPassi == 1) {
+    if (setPassi == 1) {
         basic.showString("" + (valorePassi))
         basic.clearScreen()
     }
 })
 input.onButtonPressed(Button.AB, function () {
-    if (inputMess == 1) {
-        radio.sendString("" + (face3))
+    if (setMessaggi == 1) {
+        radio.sendString("" + (facciaCacca))
         basic.showLeds(`
             . . . . .
             . . . # .
@@ -38,7 +38,7 @@ input.onButtonPressed(Button.AB, function () {
     }
 })
 radio.onReceivedString(function (receivedString) {
-    if (receivedString == face1) {
+    if (receivedString == facciaFelice) {
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -56,7 +56,7 @@ radio.onReceivedString(function (receivedString) {
             `)
         basic.pause(500)
         basic.clearScreen()
-    } else if (receivedString == face2) {
+    } else if (receivedString == facciaTriste) {
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -74,7 +74,7 @@ radio.onReceivedString(function (receivedString) {
             `)
         basic.pause(500)
         basic.clearScreen()
-    } else if (receivedString == face3) {
+    } else if (receivedString == facciaCacca) {
         basic.showLeds(`
             . . . . .
             . . . # .
@@ -95,8 +95,8 @@ radio.onReceivedString(function (receivedString) {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (inputMess == 1) {
-        radio.sendString("" + (face2))
+    if (setMessaggi == 1) {
+        radio.sendString("" + (facciaTriste))
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -106,24 +106,24 @@ input.onButtonPressed(Button.B, function () {
             `)
         basic.pause(1000)
         basic.clearScreen()
-    } else if (inputPassi == 1) {
+    } else if (setPassi == 1) {
         valorePassi = 0
         basic.showString("" + (valorePassi))
     }
 })
-let face2 = ""
-let face3 = ""
-let face1 = ""
+let facciaTriste = ""
+let facciaCacca = ""
+let facciaFelice = ""
 let valorePassi = 0
-let inputPassi = 0
-let inputMess = 0
+let setPassi = 0
+let setMessaggi = 0
 radio.setGroup(5)
 basic.pause(2000)
 if (input.buttonIsPressed(Button.A)) {
-    inputMess = 1
+    setMessaggi = 1
     basic.showString("Facce")
 } else if (input.buttonIsPressed(Button.B)) {
-    inputPassi = 1
+    setPassi = 1
     valorePassi = 0
     basic.showString("Passi")
 } else {
