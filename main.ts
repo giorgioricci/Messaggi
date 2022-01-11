@@ -17,8 +17,8 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    valorePassi += 1
     if (setPassi == 1) {
+        valorePassi += 1
         basic.showString("" + (valorePassi))
         basic.clearScreen()
     }
