@@ -25,7 +25,7 @@ input.onGesture(Gesture.Shake, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     if (setMessaggi == 1) {
-        radio.sendString("" + (facciaCacca))
+        radio.sendString("facciaCacca")
         basic.showLeds(`
             . . . . .
             . . . # .
@@ -114,13 +114,16 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("" + (valorePassi))
     }
 })
-let facciaTriste = ""
-let facciaCacca = ""
-let facciaFelice = ""
 let valorePassi = 0
 let setPassi = 0
 let setMessaggi = 0
+let facciaCacca = ""
+let facciaTriste = ""
+let facciaFelice = ""
 radio.setGroup(5)
+facciaFelice = "facciaFelice"
+facciaTriste = "facciaTriste"
+facciaCacca = "facciaCacca"
 basic.showString("A o B?")
 basic.pause(2000)
 if (input.buttonIsPressed(Button.A)) {
