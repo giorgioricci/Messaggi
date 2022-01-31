@@ -39,6 +39,7 @@ input.onButtonPressed(Button.AB, function () {
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == facciaFelice) {
+        music.startMelody(music.builtInMelody(Melodies.JumpUp), MelodyOptions.Once)
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -57,6 +58,7 @@ radio.onReceivedString(function (receivedString) {
         basic.pause(500)
         basic.clearScreen()
     } else if (receivedString == facciaTriste) {
+        music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -75,6 +77,7 @@ radio.onReceivedString(function (receivedString) {
         basic.pause(500)
         basic.clearScreen()
     } else if (receivedString == facciaCacca) {
+        music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
         basic.showLeds(`
             . . . . .
             . . . # .
