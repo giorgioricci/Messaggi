@@ -121,6 +121,7 @@ let facciaCacca = ""
 let facciaTriste = ""
 let facciaFelice = ""
 radio.setGroup(5)
+music.setVolume(127)
 facciaFelice = "facciaFelice"
 facciaTriste = "facciaTriste"
 facciaCacca = "facciaCacca"
