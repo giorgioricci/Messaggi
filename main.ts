@@ -10,6 +10,12 @@ input.onButtonPressed(Button.A, function () {
     basic.pause(1000)
     basic.clearScreen()
 })
+input.onGesture(Gesture.Shake, function () {
+    radio.sendString("" + (facciaCuore))
+    basic.showIcon(IconNames.Heart)
+    basic.pause(1000)
+    basic.clearScreen()
+})
 input.onButtonPressed(Button.AB, function () {
     radio.sendString("" + (facciaCacca))
     basic.showLeds(`
@@ -80,6 +86,15 @@ radio.onReceivedString(function (receivedString) {
             `)
         basic.pause(500)
         basic.clearScreen()
+    } else if (receivedString == facciaCuore) {
+        music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
+        basic.showIcon(IconNames.Heart)
+        basic.pause(500)
+        basic.showIcon(IconNames.SmallHeart)
+        basic.pause(500)
+        basic.showIcon(IconNames.Heart)
+        basic.pause(500)
+        basic.clearScreen()
     }
 })
 input.onButtonPressed(Button.B, function () {
@@ -94,6 +109,7 @@ input.onButtonPressed(Button.B, function () {
     basic.pause(1000)
     basic.clearScreen()
 })
+let facciaCuore = ""
 let facciaCacca = ""
 let facciaTriste = ""
 let facciaFelice = ""
@@ -102,3 +118,4 @@ music.setVolume(0)
 facciaFelice = "facciaFelice"
 facciaTriste = "facciaTriste"
 facciaCacca = "facciaCacca"
+facciaCuore = "facciaCuore"
